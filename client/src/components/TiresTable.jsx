@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 
 
 const TireTable = ({ tires }) =>{
+    console.log("table")
+    console.log({tires})
+    console.log(tires)
     return (
         <table className="table table-striped table-bordered table-hover table-responsive">
             <thead>
@@ -16,7 +19,7 @@ const TireTable = ({ tires }) =>{
                 </tr>
             </thead>
             <tbody>
-                {tires.map((tire , index) =>(
+                {tires?.map((tire , index) =>(
                     <tr key ={tire._id}>
                         <td>{index+1}</td>
                         <td>{tire.regisNo}</td>
@@ -25,9 +28,10 @@ const TireTable = ({ tires }) =>{
                         <td>{tire.tollPlaza}</td>
                         <td>{tire.phoneNo}</td>
                         <td>
-                            <div>
+                            nothing
+                            {/* <div>
                                 <Link to={`/tireReports/details/${tire._id}`}>view report</Link>
-                            </div>
+                            </div> */}
                         </td>
                     </tr>
                 ))}

@@ -8,7 +8,11 @@ import HeaderBS from "./components/HeaderBS";
 import Tolluncle from "./pages/Tolluncle";
 import User from "./pages/User";
 import Dealer from "./pages/Dealer";
+import TireTable from "./components/TiresTable";
+import Testcomponent from "./components/Testcomponent";
+import Usertable from "./pages/Usertable";
 
+import "./styles/Loading.scss"
 import "./styles/Tolluncle.scss"
 import "./styles/User.scss"
 import "./styles/App.scss";
@@ -32,7 +36,7 @@ function App() {
         <Route path="/tolluncle" element={<Tolluncle />} />
         <Route path="/dealer" element={<Dealer />} />
         <Route path="/user" element={<User />} />
-
+        <Route path="/user/:regisNo" element={<Usertable />} />
       </Routes>
       <Footer />
     </Router>
