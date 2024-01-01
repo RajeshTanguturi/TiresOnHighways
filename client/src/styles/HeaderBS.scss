@@ -1,0 +1,34 @@
+@import "colors";
+
+#navbarbs{
+    background-color: $blue;
+    position: sticky;
+
+    >div 
+        >a{
+            color:$yellow;
+        }
+    
+
+    #navbarNavDropdown >ul > li > a
+    {
+        color:$yellow;
+    }
+
+#togglebutton
+{
+    background-color: $yellow;
+}
+}
+.toggleicon{
+    display: inline-block;
+    width: 40px;
+    height: 32px;
+    vertical-align: middle;
+    background-color: $yellow;
+    background-image: url(../assets/toggleicon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+

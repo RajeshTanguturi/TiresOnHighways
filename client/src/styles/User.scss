@@ -1,0 +1,125 @@
+// Inputpage.scss
+@import "colors";
+.user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 200vh;
+  width :100%;
+}
+
+.card {
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+  align-items: center;
+
+  > h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  > form {
+    .form-floating {
+      position: relative;
+
+      > input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+    }
+
+    > button {
+      width: 25%;
+      padding: 10px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-out;
+
+      &:hover {
+        background-color: #218838;
+      }
+    }
+
+  }
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  #firstpage {
+    // width: 25%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+
+    &:hover {
+      background-color: #218838;
+    }
+  }
+  #prevpage {
+    // width: 25%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+
+    &:hover {
+      background-color: #218838;
+    }
+  }
+  #nextpage {
+    // width: 25%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+
+    &:hover {
+      background-color: #218838;
+    }
+  }
+  #lastpage {
+    // width: 25%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+
+    &:hover {
+      background-color: #218838;
+    }
+  }
+  #userth{
+background-color: $yellow;
+  }
+}
+
+// Add additional styles if needed
