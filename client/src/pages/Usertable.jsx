@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import tire from "../assets/singletire.png";
-<<<<<<< HEAD
 import tiref from "../assets/flattire.png";
 
-=======
-import tiref from "../assets/flattire.png"
->>>>>>> origin/main
 const Usertable = () => {
   const { regisNo } = useParams();
   const [Tirereport, setTirereport] = useState({});
@@ -29,11 +25,7 @@ const Usertable = () => {
     };
 
     fetchData();
-<<<<<<< HEAD
   }, [regisNo,Tirereport]);
-=======
-  }, [regisNo]);
->>>>>>> origin/main
 
   return (
     <div>
@@ -43,20 +35,14 @@ const Usertable = () => {
           <h5>loading your beautiful tires</h5>
         </div>
       )}
-<<<<<<< HEAD
 
 
-=======
->>>>>>> origin/main
       {error && <div className="loading-error container">
           <img src={tiref} alt="Error..." />
           <h5>Error fetching data: {error.message}</h5>
         </div> }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> origin/main
       {!isLoading && !error && { regisNo }}
     </div>
   );
