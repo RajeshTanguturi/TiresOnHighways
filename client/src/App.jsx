@@ -11,12 +11,20 @@ import Dealer from "./pages/Dealer";
 import TireTable from "./components/TiresTable";
 import Testcomponent from "./components/Testcomponent";
 import Usertable from "./pages/Usertable";
+<<<<<<< HEAD
 import Utable from "./pages/Utable"
 
 import "./styles/Loading.scss"
 import "./styles/Tolluncle.scss"
 import "./styles/App.scss";
 import "./styles/User.scss";
+=======
+
+import "./styles/Loading.scss"
+import "./styles/Tolluncle.scss"
+import "./styles/User.scss"
+import "./styles/App.scss";
+>>>>>>> origin/main
 import "./styles/Header.scss";
 import "./styles/HeaderBS.scss";
 import "./styles/Home.scss";
@@ -28,6 +36,10 @@ import "bootstrap/dist/css/bootstrap.css";
 function App() {
   return (
     <Router>
+<<<<<<< HEAD
+=======
+      {/* <Header /> */}
+>>>>>>> origin/main
       <HeaderBS />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -37,7 +49,10 @@ function App() {
         <Route path="/dealer" element={<Dealer />} />
         <Route path="/user" element={<User />} />
         <Route path="/user/:regisNo" element={<Usertable />} />
+<<<<<<< HEAD
         <Route path ="/testing" element={<Utable/>} />
+=======
+>>>>>>> origin/main
       </Routes>
       <Footer />
     </Router>
@@ -45,6 +60,7 @@ function App() {
 }
 
 export default App;
+<<<<<<< HEAD
 
 // import React from 'react'
 // import BasicTable from './tests/BasicTable'
@@ -68,3 +84,5 @@ export default App;
 // }
 
 // export default App;
+=======
+>>>>>>> origin/main

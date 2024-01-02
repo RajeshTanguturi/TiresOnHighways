@@ -1,7 +1,10 @@
 import React from "react";
 import vg from "../assets/singletire.png";
+<<<<<<< HEAD
 import {HashLink} from 'react-router-hash-link'
 
+=======
+>>>>>>> origin/main
 import {
   AiFillGoogleCircle,
   AiFillTwitterCircle,
@@ -25,7 +28,10 @@ const Home = () => {
             repellendus. Exercitationem excepturi reprehenderit tenetur
             incidunt.
           </p>
+<<<<<<< HEAD
         <HashLink id="userredirect" to ={"/user"}>Check my Reports</HashLink>
+=======
+>>>>>>> origin/main
         </main>
       </div>
 

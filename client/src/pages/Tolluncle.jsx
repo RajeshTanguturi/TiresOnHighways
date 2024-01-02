@@ -3,13 +3,19 @@ import React, { useState } from "react";
 const Tolluncle = () => {
   const [image, setImage] = useState(null);
   const [regisNo, setregisNo] = useState("");
+<<<<<<< HEAD
   const [phoneNo, setphoneNo] = useState("");
+=======
+>>>>>>> origin/main
   const submitImage = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", image);
     formData.append("regisNo", regisNo);
+<<<<<<< HEAD
     formData.append("phoneNo", phoneNo);
+=======
+>>>>>>> origin/main
     console.log(formData);
     try {
       const response = await axios.post(
@@ -37,6 +43,7 @@ const Tolluncle = () => {
     console.log(e.target.value);
     setregisNo(e.target.value);
   };
+<<<<<<< HEAD
   const uploadphoneNo = (e) => {
     console.log(e);
     console.log(e.target.value);
@@ -88,6 +95,46 @@ const Tolluncle = () => {
         </form>
       </div>
     </div>
+=======
+  return(
+    <div className="toll" id="toll">
+        <div className="card">
+          <form onSubmit={submitImage}>
+            <div className="form-floating">
+              <input
+                type="text"
+                placeholder="Enter reg number"
+                id="regno"
+                className="form-control"
+                onChange={uploadregisNo}
+              />
+              <label for="regno">
+                <p>Registration Number </p>
+              </label>
+            </div>
+            <div>
+              <div>
+                <label htmlFor="input-file" className="upload">
+                  {" "}
+                  Upload image
+                </label>
+              </div>
+              <input
+                type="file"
+                id="input-file"
+                accept="image/*"
+                onChange={uploadImage}
+              />
+            </div>
+            <div>
+              <button type="submit" class="btn btn-success">
+                submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+>>>>>>> origin/main
   );
 };
 
