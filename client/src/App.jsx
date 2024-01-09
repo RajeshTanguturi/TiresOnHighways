@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Services from "./components/Services";
 import Feedback from "./components/Feedback";
 import HeaderBS from "./components/HeaderBS";
-import Tolluncle from "./pages/Tolluncle";
+import Toll from "./pages/Toll";
 import User from "./pages/User";
 import Dealer from "./pages/Dealer";
 import TireTable from "./components/TiresTable";
@@ -34,7 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/feedback" element={<Feedback />} />
-        <Route path="/tolluncle" element={<Tolluncle />} />
+        <Route path="/tolluncle" element={<Toll />} />
         <Route path="/dealer" element={<Dealer />} />
         <Route path="/user" element={<User />} />
         <Route path="/user/:regisNo" element={<Usertable />} />

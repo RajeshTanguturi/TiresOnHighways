@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const Tolluncle = () => {
+
+const Toll = () => {
   const [image, setImage] = useState(null);
   const [regisNo, setregisNo] = useState("");
   const [phoneNo, setphoneNo] = useState("");
@@ -24,7 +25,7 @@ const Tolluncle = () => {
         formData,
         {
           headers: {
-            "content-Type": "multipart/form-data",
+            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -71,7 +72,7 @@ const Tolluncle = () => {
               />
               <label for="floatingInputregisno">Registration number</label>
             </div>
-            <div class="form-floating">
+            <div className="form-floating">
               <input
                 type="tel"
                 class="form-control"
@@ -102,9 +103,11 @@ const Tolluncle = () => {
               {loading ? (
                 <p>loading...</p>
               ) : (
-                image && phoneNo &&  regisNo && (
+                image &&
+                phoneNo &&
+                regisNo && (
                   <div>
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" className="btn btn-success">
                       submit
                     </button>
                   </div>
@@ -119,4 +122,4 @@ const Tolluncle = () => {
   );
 };
 
-export default Tolluncle;
+export default Toll;
