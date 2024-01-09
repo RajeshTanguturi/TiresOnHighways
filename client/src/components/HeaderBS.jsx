@@ -8,13 +8,13 @@ const HeaderBS = () => {
     <nav className="navbar navbar-expand-lg" id="navbarbs">
       <div className="container-fluid">
         <HashLink className="navbar-brand" to="/#Home">
-          <img
+          {/* <img
             src={mainlogo}
             alt="TOH"
             width="40"
             height="32"
             className="d-inline-block align-text-top"
-          />
+          /> */}
           Tread Insights
         </HashLink>
         <button
@@ -31,7 +31,7 @@ const HeaderBS = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <HashLink
                 className="nav-link active"
                 aria-current="page"
@@ -44,29 +44,12 @@ const HeaderBS = () => {
               <HashLink
                 className="nav-link active"
                 aria-current="page"
-                to={"/#contactUs"}
-              >
-                Contact
-              </HashLink>
-            </li>
-            <li className="nav-item">
-              <HashLink
-                className="nav-link active"
-                aria-current="page"
                 to={"/services"}
-              >
-                Services
-              </HashLink>
-            </li>
-            <li className="nav-item">
-              <HashLink
-                className="nav-link active"
-                aria-current="page"
-                to={"/feedback"}
-              >
-                Feedback
-              </HashLink>
-            </li>
+              > */}
+                {/* Services
+              </HashLink> */}
+            {/* </li> */}
+            
 
             <li className="nav-item">
               <HashLink
@@ -74,7 +57,7 @@ const HeaderBS = () => {
                 aria-current="page"
                 to={"/tolluncle"}
               >
-                Tolluncle
+                Toll Plaza
               </HashLink>
             </li>
             <li className="nav-item">
@@ -97,7 +80,24 @@ const HeaderBS = () => {
               >
                 Dealer
               </HashLink>
-            
+            </li>
+            <li className="nav-item">
+              <HashLink
+                className="nav-link active"
+                aria-current="page"
+                to={"/aboutus"}
+              >
+                About Us 
+              </HashLink>
+            </li>
+            <li className="nav-item">
+              <HashLink
+                className="nav-link active"
+                aria-current="page"
+                to={"/feedback"}
+              >
+                Feedback
+              </HashLink>
             </li>
           </ul>
         </div>

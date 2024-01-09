@@ -12,6 +12,7 @@ import TireTable from "./components/TiresTable";
 import Testcomponent from "./components/Testcomponent";
 import Usertable from "./pages/Usertable";
 import Utable from "./pages/Utable"
+import Aboutus from "./components/Aboutus";
 
 import "./styles/Loading.scss"
 import "./styles/Tolluncle.scss"
@@ -38,6 +39,8 @@ function App() {
         <Route path="/user" element={<User />} />
         <Route path="/user/:regisNo" element={<Usertable />} />
         <Route path ="/testing" element={<Utable/>} />
+        <Route path ="/aboutus" element={ <Aboutus/> } />
+        
       </Routes>
       <Footer />
     </Router>

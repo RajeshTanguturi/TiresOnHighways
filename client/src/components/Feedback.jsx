@@ -5,6 +5,7 @@ const Contact = () => {
     <div className="Feedback">
       <main>
         <h1>Feedback</h1>
+        <h6>on website</h6>
 
         <form>
           <div>

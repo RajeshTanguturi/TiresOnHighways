@@ -11,7 +11,7 @@ const Inputpage = () => {
     setfinalrno(regisNo);
     setShowTable(true);
   };
-
+  
   const handleRegisNoChange = (event) => {
     setregisNo(event.target.value);
   };
@@ -19,7 +19,7 @@ const Inputpage = () => {
   return (
     <div className="user">
       <div className="card">
-        <h2>Check your Reports</h2>
+        <h2>Tire Reports</h2>
         <form id="inputForm" onSubmit={handleSubmit}>
           <div className="form-floating">
             <input

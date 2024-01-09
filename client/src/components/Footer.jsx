@@ -6,14 +6,14 @@ const Footer = () => {
       <footer>
         <div>
           <h1>Tires On Highways</h1>
-          <p>@no rights are reserved</p>
+          <p>@All Rights are reserved</p>
         </div>
         <div>
-            <h5>Follow Us</h5>
+            <h5>Contact Us</h5>
             <div>
-                <a href="https://youtu.be/dQw4w9WgXcQ?si=SubdYlNMrbJtb2tI" target="_blank" rel="noreferrer">Youtube</a>
-                <a href="https://youtu.be/dQw4w9WgXcQ?si=SubdYlNMrbJtb2tI" target="_blank" rel="noreferrer">Instagram</a>
-                <a href="https://youtu.be/dQw4w9WgXcQ?si=SubdYlNMrbJtb2tI" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="" target="_blank" rel="noreferrer">Twitter</a>
+                <a href="" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="" target="_blank" rel="noreferrer">GitHub</a>
             </div>
         </div>
       </footer>

@@ -79,10 +79,16 @@ const Table = () => {
   // You can use the 'rno' prop to render the necessary data in your table
   if (loading) {
     // Render loading state or a placeholder
-    return <div>Loading...</div>;
+    <div className="loading" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    Loading...
+  </div>
+
   }
   return (
-    <div>
+    <>
+    <div className="container">
+    <h1>Tire Reports</h1>
+    <br />
       {/* <h1>user</h1> */}
       <input
         type="text"
@@ -150,7 +156,7 @@ const Table = () => {
         </tfoot>
       </table>
       <div className="buttons">
-        <button id= "firstpage"onClick={() => table.setPageIndex(0)}>First page</button>
+        {/* <button id= "firstpage"onClick={() => table.setPageIndex(0)}>First page</button> */}
         <button
         id="prevpage"
           disabled={!table.getCanPreviousPage()}
@@ -165,11 +171,12 @@ const Table = () => {
         >
           Next page
         </button>
-        <button id="lastpage" onClick={() => table.setPageIndex(table.getPageCount() - 1)}>
+        {/* <button id="lastpage" onClick={() => table.setPageIndex(table.getPageCount() - 1)}>
           Last page
-        </button>
+        </button> */}
       </div>
     </div>
+    </>
   );
 };
 
