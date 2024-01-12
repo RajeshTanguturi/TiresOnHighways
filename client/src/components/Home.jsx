@@ -10,7 +10,7 @@ import {
 } from "react-icons/ai";
 const Home = () => {
   return (
-    <>
+    <div className="hero">
       <div className="home" id="Home">
         <main>
           <h1>Tires On Highways</h1>
@@ -33,7 +33,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

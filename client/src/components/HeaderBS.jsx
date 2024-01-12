@@ -23,7 +23,7 @@ const HeaderBS = () => {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
+          aria-controls="#navbarNavDropdown"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
@@ -31,26 +31,6 @@ const HeaderBS = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            {/* <li className="nav-item">
-              <HashLink
-                className="nav-link active"
-                aria-current="page"
-                to={"/#aboutUs"}
-              >
-                About Us
-              </HashLink>
-            </li>
-            <li className="nav-item">
-              <HashLink
-                className="nav-link active"
-                aria-current="page"
-                to={"/services"}
-              > */}
-                {/* Services
-              </HashLink> */}
-            {/* </li> */}
-            
-
             <li className="nav-item">
               <HashLink
                 className="nav-link active"

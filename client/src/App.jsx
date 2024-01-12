@@ -14,22 +14,22 @@ import Usertable from "./pages/Usertable";
 import Utable from "./pages/Utable"
 import Aboutus from "./components/Aboutus";
 
+import "bootstrap/dist/css/bootstrap.css";
 import "./styles/Loading.scss"
 import "./styles/Tolluncle.scss"
 import "./styles/App.scss";
 import "./styles/User.scss";
-import "./styles/Header.scss";
-import "./styles/HeaderBS.scss";
+// import "./styles/HeaderBS.scss";
 import "./styles/Home.scss";
 import "./styles/Footer.scss";
 import "./styles/Feedback.scss";
 import "./styles/mediaquery.scss";
-import "bootstrap/dist/css/bootstrap.css";
+import "./styles/Header.scss";
 
 function App() {
   return (
     <Router>
-      <HeaderBS />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
