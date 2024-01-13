@@ -23,7 +23,7 @@ import "./styles/User.scss";
 import "./styles/Home.scss";
 import "./styles/Footer.scss";
 import "./styles/Feedback.scss";
-import "./styles/mediaquery.scss";
+// import "./styles/mediaquery.scss";
 import "./styles/Header.scss";
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/feedback" element={<Feedback />} />
-        <Route path="/tolluncle" element={<Toll />} />
+        <Route path="/toll" element={<Toll />} />
         <Route path="/dealer" element={<Dealer />} />
         <Route path="/user" element={<User />} />
         <Route path="/user/:regisNo" element={<Usertable />} />
@@ -48,26 +48,3 @@ function App() {
 }
 
 export default App;
-
-// import React from 'react'
-// import BasicTable from './tests/BasicTable'
-// import Utable from './pages/Utable'
-// import 'bootstrap/dist/css/bootstrap.css';
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import User from './pages/User';
-
-
-// const App = () => {
-//   return (
-//     <Router>
-//       <Routes>
-//       <Route path="/" element ={<User/>} />
-//       <Route path="/userreport" element={<Utable />} />
-//       {/* <BasicTable /> */}
-//       {/* <Utable /> */}
-//       </Routes>
-//     </Router>
-//   )
-// }
-
-// export default App;
