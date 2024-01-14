@@ -26,8 +26,10 @@
           width: 20%;
           margin: auto;
         }
+        > textarea{
+          max-height: 20vh ;
+        }
       }
-
       > button {
         margin: rem 0;
         padding: 0.7rem;
@@ -51,6 +53,19 @@
     border-radius: 0%;
     h1 {
       text-align: center;
+    }
+  }
+}
+@media screen and (max-width : 450px) {
+  .Feedback > main {
+    height: 100vh;
+    width: 100%;
+    border-radius: 0%;
+    h1 {
+      text-align: center;
+    }
+    >form {
+      margin : 0 ;
     }
   }
 }

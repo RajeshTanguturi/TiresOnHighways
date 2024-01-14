@@ -1,45 +1,63 @@
 @import "colors";
 
-footer {
+.myfooter {
   background-color: $black;
-  height: 200px;
+  // height: 40vh;
+  min-height: 30vh;
   width: 100%;
   color: $white;
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 2fr 1fr;
   padding: 2rem;
 
-
-  > div{
+  #footerbrand {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    >h1{
-    font: 700 2rem $text1;
-    text-transform: uppercase;
-    color: $white;
+    align-items: flex-start;
+    > h1 {
+      font: 700 2rem $text1;
+      text-transform: uppercase;
+      color: $white;
     }
-    >p {
-    font :500 1.2rem $text1;
+    > p {
+      color: $grey;
+      font: 200 1rem $text1;
     }
-    >h5 {
-        font :300 2rem $text1;
-        margin : 1rem;
-        text-align :center;
-    }
-    >div{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        a{
-            color: $yellow;
-            font : 900 1rem $text2;
-            &:hover{
-                color: $grey;
-            }
-        }
-    }
-
   }
-
+  #contactfooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h5 {
+      font: 500 2rem $text1;
+    }
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      a {
+        text-decoration: none;
+        color: $yellow;
+        font: 400 1rem $text1;
+        &:hover {
+          color: $grey;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .myfooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    #footerbrand{
+      align-items: center;
+      padding-bottom: 1rem;
+    }
+  }
 }

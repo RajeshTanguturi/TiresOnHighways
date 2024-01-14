@@ -40,7 +40,8 @@ function App() {
         <Route path="/user/:regisNo" element={<Usertable />} />
         <Route path ="/testing" element={<Utable/>} />
         <Route path ="/aboutus" element={ <Aboutus/> } />
-        
+        <Route path ="/footer" element={ <Footer/> } />
+
       </Routes>
       <Footer />
     </Router>

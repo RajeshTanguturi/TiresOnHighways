@@ -2,22 +2,20 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <footer>
-        <div>
+      <footer className="myfooter">
+        <div id="footerbrand">
           <h1>Tires On Highways</h1>
           <p>@All Rights are reserved</p>
         </div>
-        <div>
+        <div id="contactfooter">
             <h5>Contact Us</h5>
             <div>
-                <a href="" target="_blank" rel="noreferrer">Twitter</a>
-                <a href="" target="_blank" rel="noreferrer">Instagram</a>
-                <a href="" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://github.com/RajeshTanguturi/TiresOnHighways" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://twitter.com/RajeshTang75222" target="_blank" rel="noreferrer">Twitter</a>
+                <a href="https://www.instagram.com/rajesh_tanguturi_/" target="_blank" rel="noreferrer">Instagram</a>
             </div>
         </div>
       </footer>
-    </div>
   );
 };
 

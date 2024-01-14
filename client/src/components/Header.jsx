@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-// import { Link } from 'react-router-dom'
-import { HashLink } from "react-router-hash-link";
-// import "../styles/Header.scss";
-import mainlogo from "../assets/toggleicon.png";
+import { Link } from "react-router-dom";
+import hamburger from "../assets/hamburgericon.png";
 
 const Header = () => {
   const [toggle, setToggle] = useState("");
@@ -15,61 +13,80 @@ const Header = () => {
     }
   };
 
+  const handleLinkclick = () => {
+    setToggle("");
+  };
   return (
     <nav className="mynavbar">
       <div className="logo">
-        <HashLink to="/">Tread Insights</HashLink>
+        <Link to="/">Tread Insights</Link>
       </div>
       <ul className="links">
         <li>
-          <HashLink to={"/toll"}>Toll</HashLink>
+          <Link to={"/toll"}>Toll</Link>
         </li>
         <li>
-          <HashLink to={"/user"}>User</HashLink>
+          <Link to={"/user"}>User</Link>
         </li>
         <li>
-          <HashLink to={"/dealer"}>Dealer</HashLink>
+          <Link to={"/dealer"}>Dealer</Link>
         </li>
         <li>
-          <HashLink to={"/services"}>Services</HashLink>
+          <Link to={"/services"}>Services</Link>
         </li>
         <li>
-          <HashLink to={"/aboutUs"}>About Us</HashLink>
+          <Link to={"/aboutUs"}>About Us</Link>
         </li>
         <li>
-          <HashLink to={"/feedback"}>Feedback</HashLink>
+          <Link to={"/feedback"}>Feedback</Link>
         </li>
       </ul>
-      <HashLink className="action_btn" to={"/feedback"}>
+      <Link className="action_btn" to={"/feedback"}>
         Login
-      </HashLink>
+      </Link>
       <div className="toggle_btn" onClick={handleToggleClick}>
         {/* <i class="fa-solid fa-bars"></i> */}
-        <img src={mainlogo} height="40px" alt="menu" />
+        <img src={hamburger} height="40px" alt="menu" />
       </div>
       <div className={`dropdown_menu ${toggle}`}>
         <li>
-          <HashLink to={"/toll"}>Toll</HashLink>
+          <Link onClick={handleLinkclick} to={"/toll"}>
+            Toll
+          </Link>
         </li>
         <li>
-          <HashLink to={"/user"}>User</HashLink>
+          <Link onClick={handleLinkclick} to={"/user"}>
+            User
+          </Link>
         </li>
         <li>
-          <HashLink to={"/dealer"}>Dealer</HashLink>
+          <Link onClick={handleLinkclick} to={"/dealer"}>
+            Dealer
+          </Link>
         </li>
         <li>
-          <HashLink to={"/services"}>Services</HashLink>
+          <Link onClick={handleLinkclick} to={"/services"}>
+            Services
+          </Link>
         </li>
         <li>
-          <HashLink to={"/aboutUs"}>About Us</HashLink>
+          <Link onClick={handleLinkclick} to={"/aboutUs"}>
+            About Us
+          </Link>
         </li>
         <li>
-          <HashLink to={"/feedback"}>Feedback</HashLink>
+          <Link onClick={handleLinkclick} to={"/feedback"}>
+            Feedback
+          </Link>
         </li>
         <li>
-          <HashLink className="action_btn_toggle" to={"/login"}>
+          <Link
+            onClick={handleLinkclick}
+            className="action_btn_toggle"
+            to={"/login"}
+          >
             Login
-          </HashLink>
+          </Link>
         </li>
       </div>
     </nav>
