@@ -8,10 +8,23 @@ import {
 } from "@tanstack/react-table";
 import axios from "axios";
 import React, { useState, useMemo, useEffect } from "react";
+import Modal from "../components/Modal";
 
 const Table = ({ rno }) => {
   const [tireReport, setTireReport] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [imageName, setimageName] = useState("");
+  const [modalopen, setModalopen] = useState(false);
+
+  const handleShowImageClick = (imageName) => {
+    console.log(imageName);
+    setimageName(imageName);
+    setModalopen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalopen(false);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +43,7 @@ const Table = ({ rno }) => {
 
     fetchData();
   }, [rno]);
+
   const results = tireReport.reports;
   const phoneNo = tireReport.phoneNo;
   const regisNo = tireReport.regisNo;
@@ -52,6 +66,15 @@ const Table = ({ rno }) => {
     {
       Header: "Date",
       accessorKey: "createdAt",
+    },
+    {
+      Header: "Show Image",
+      accessorKey: "imageUrl", // Assuming you have an 'imageUrl' property in your data
+      cell: (cell) => (
+        <button onClick={() => handleShowImageClick(cell.row.original.imageName)}>
+          Show Image
+        </button>
+      ),
     },
   ];
   const [sorting, setSorting] = useState([]);
@@ -78,19 +101,22 @@ const Table = ({ rno }) => {
     return <div>Loading...</div>;
   }
   return (
-    <>
-      <div>
-        <h6>Registration number : {regisNo}</h6>
-        <h6> Phone Number : {phoneNo}</h6>
+    <div className="container">
+    <br />
+      <div >
+        <h6 id="text" > Registration number : {regisNo}</h6>
+        <h6 id="text" > Phone Number : {phoneNo}</h6>
       </div>
       <div>
-        {/* <h1>user</h1> */}
         <input
+        id="searchbox"
+        className="form-control"
           type="text"
           value={filtering}
           onChange={(e) => setFiltering(e.target.value)}
-          placeholder="search"
+          placeholder="search..."
         />
+
         <table
           id="usertable"
           className="table table-striped table-hover table-bordered"
@@ -122,10 +148,9 @@ const Table = ({ rno }) => {
               </tr>
             ))}
           </thead>
-
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
+              <tr key={row.id}  >
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -177,7 +202,13 @@ const Table = ({ rno }) => {
           </button>
         </div>
       </div>
-    </>
+      {modalopen&& (
+        <Modal
+          onClose={handleCloseModal}
+          imageName={imageName}
+        />
+      )}
+    </div>
   );
 };
 

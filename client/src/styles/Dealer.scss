@@ -1,0 +1,14 @@
+#text {
+  font: 700 1.3rem $text1;
+}
+#searchbox {
+  margin: 1rem 0;
+}
+#dealer {
+  margin: 4rem;
+}
+.table-container {
+    max-height: 400px; /* Adjust the height as needed */
+    overflow-y: auto;
+    margin-bottom: 20px; /* Add some bottom margin to separate buttons from the table */
+  }

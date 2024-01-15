@@ -29,11 +29,8 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     // console.log("at filename", req.body);
-    const regisNo = req.body.regisNo;
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    const filename = `${regisNo}_${uniqueSuffix}${path.extname(
-      file.originalname
-    )}`;
+    const filename = `${uniqueSuffix}${path.extname(file.originalname)}`;
     cb(null, filename);
   },
 });
@@ -187,30 +184,48 @@ app.get("/tirereports/:regisNo", async (req, res) => {
   }
 });
 
-app.get("/getimage", async (req, res) => {
-  const imageName = req.body.imageNamereq;
-  console.log(imageName);
-  const imagePath = path.join("./public/uploads", imageName);
-  const imageBuffer = await fs.readFile(imagePath);
+app.get("/getimage/:imageName", async (req, res) => {
+  try {
+    console.log("got request for image");
+    const { imageName } = req.params;
+    if (!imageName) {
+      res.status(400).send("Image name is missing in the request body");
+      return;
+    }
+    console.log(imageName);
+    const imagePath = path.join("./public/uploads", imageName);
+    const fileExists = await fs
+      .access(imagePath)
+      .then(() => true)
+      .catch(() => false);
 
-  // Determine the content type based on the file extension
-  const fileExtension = path.extname(imageName).toLowerCase();
-  let contentType = "image/jpeg"; // Default to JPEG
-  if (fileExtension === ".jpeg" || fileExtension === ".jpg") {
-    contentType = "image/jpeg";
-  } else if (fileExtension === ".png") {
-    contentType = "image/png";
-  } else if (fileExtension === ".gif") {
-    contentType = "image/gif";
+    if (!fileExists) {
+      res.status(404).send("Image not found");
+      return;
+    }
+
+    const imageBuffer = await fs.readFile(imagePath);
+
+    // Determine the content type based on the file extension
+    const fileExtension = path.extname(imageName).toLowerCase();
+    let contentType = "image/jpeg"; // Default to JPEG
+    if (fileExtension === ".jpeg" || fileExtension === ".jpg") {
+      contentType = "image/jpeg";
+    } else if (fileExtension === ".png") {
+      contentType = "image/png";
+    } else if (fileExtension === ".gif") {
+      contentType = "image/gif";
+    }
+
+    // Set the appropriate content type for the image
+    res.setHeader("Content-Type", contentType);
+
+    // Send the image Buffer as the response
+    res.send(imageBuffer);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
   }
-
-  // Set the appropriate content type for the image
-  res.setHeader("Content-Type", contentType);
-
-  // Send the image Buffer as the response
-  res.send(imageBuffer);
-
-  //  TS22KA1919_1704532055601-439873883.jpg
 });
 
 startServer();

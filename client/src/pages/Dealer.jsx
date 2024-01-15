@@ -86,7 +86,7 @@ const Table = () => {
   }
   return (
     <>
-    <div className="container">
+    <div className="container" id="dealer">
     <h1>Tire Reports</h1>
     <br />
       {/* <h1>user</h1> */}
