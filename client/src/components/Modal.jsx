@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/Modal.scss";
+
 const Modal = ({ onClose, imageName }) => {
   const [image, setImage] = useState(null);
   const [isAccurate, setIsAccurate] = useState(false);
   const [feedback, setFeedback] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleToggle = () => {
     setIsAccurate((prev) => !prev);
   };
@@ -13,7 +16,33 @@ const Modal = ({ onClose, imageName }) => {
   const handleFeedbackChange = (e) => {
     setFeedback(e.target.value);
   };
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData;
+    formData.append("accurate",isAccurate);
+    formData.append("feedback",feedback);
+    formData.append("imageName",imageName);
+    console.log(formData);
+    try{
+      const response = await axios.post(
+        "http://localhost:5555/imagefeedback",
+        formData,
+        {
+          headers: {
+            "Content-Type":"application/json"
+          }
+        }
+      );
+      setIsAccurate(false);
+      setFeedback("");
+      toast.success("Feedback sent successfully");
+      console.log("Response from server:", response.data);
+    }
+    catch(error){
+      toast.error("Error sending Feedback");
+      console.error("Error sending Feedback:", error);
+    }
+  };
   const handleModalClose = () => {
     onClose();
   };
@@ -67,29 +96,33 @@ const Modal = ({ onClose, imageName }) => {
         <h1>Tire Image</h1>
         {image ? (
           <>
-          <img src={image} alt="Server Provided Image" />
-          <div className="toggle-container">
-          <label>
-            Accurate
-            <input
-              type="checkbox"
-              checked={isAccurate}
-              onChange={handleToggle}
-            />
-          </label>
-        </div>
-        <div className="feedback-container">
-          <label>Feedback:</label>
-          <textarea
-            value={feedback}
-            onChange={handleFeedbackChange}
-            placeholder="Provide your feedback..."
-          ></textarea>
-        </div>
-        <button id="submitbutton" onClick={handleSubmit}>Submit</button>
-        </>
+            <img src={image} alt="Server Provided Image" />
+            <form onSubmit={handleSubmit}> 
+              <div className="toggle-container">
+                <label>
+                  Accurate
+                  <input
+                    type="checkbox"
+                    checked={isAccurate}
+                    onChange={handleToggle}
+                  />
+                </label>
+              </div>
+              <div className="feedback-container">
+                <label>Feedback:</label>
+                <textarea
+                  value={feedback}
+                  onChange={handleFeedbackChange}
+                  placeholder="Provide your feedback..."
+                ></textarea>
+              </div>
+              <button id="submitbutton" type="submit">
+                Submit
+              </button>
+            </form>
+          </>
         ) : (
-          <div style={{ height: "50%", width: "50%"}}>
+          <div style={{ height: "50%", width: "50%" }}>
             <h5>No Image Found</h5>
           </div>
         )}
@@ -100,6 +133,7 @@ const Modal = ({ onClose, imageName }) => {
         {/* <i class="bi bi-x-square-fill"></i> */}
         {/* <button id="closebutton" onClick={handleModalClose}>Close</button> */}
       </div>
+      <ToastContainer />
     </div>
   );
 };

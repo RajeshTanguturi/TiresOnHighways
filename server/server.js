@@ -1,5 +1,7 @@
 import { PORT, mongodbURL } from "./config.js";
 import TireSchema from "./schemas/crackedReport.js";
+import webFeedbackSchema from "./schemas/webFeedback.js";
+import imageFeedbackSchema from "./schemas/imageFeedback.js";
 
 import express from "express";
 import cors from "cors";
@@ -19,7 +21,7 @@ app.use(cors());
 
 app.get("/", (req, res) => {
   console.log(req);
-  res.status(234).send("welcome to backend");
+  res.status(234).send("welcome to backend its working!");
 });
 
 // function to store the request image
@@ -72,7 +74,6 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     // seting the mime type
     // const image = croppedImageBuffer;
     // const precessedImageBuffer = await image.getBufferAsync(Jimp.MIME_JPEG);
-
     console.log("Image processed successfully by jimp.");
     // Decode the preprocessed image buffer
     const inputTensor = tf.node.decodeImage(croppedImageBuffer);
@@ -228,11 +229,49 @@ app.get("/getimage/:imageName", async (req, res) => {
   }
 });
 
-startServer();
+app.post("/webfeedback", async (req,res)=>{
+
+  console.log("got webfeedback request",);
+  try {
+    const {name, email, feedback} = req.body;
+    const newFeedback = {
+      name:name,
+      email:email,
+      feedback:feedback
+    };
+    const Feedback = await webFeedbackSchema.create(newFeedback);
+    console.log("feedback sent to database");
+    return res.status(201).send(Feedback);
+  } catch (error) {
+    console.error("Error uploading feedback:", error);
+    res.status(500).json({ error: "Error uploading feedback" });
+  }
+});
+
+app.post("/imagefeedback", async (req,res)=>{
+
+  console.log("got imagefeedback request",);
+  try {
+    console.log(req.body)
+    const {imageName, accurate, feedback} = req.body;
+    const newFeedback = {
+      imageName : imageName,
+      accurate:accurate,
+      feedback:feedback
+    };
+    const Feedback = await imageFeedbackSchema.create(newFeedback);
+    console.log("feedback sent to database");
+    return res.status(201).send(Feedback);
+  } catch (error) {
+    console.error("Error uploading feedback:", error);
+    res.status(500).json({ error: "Error uploading feedback" });
+  }
+});
+
 
 async function startServer() {
   try {
-    app.listen(PORT, () => {
+    app.listen(PORT || 8000, () => {
       console.log(`Server is listening on port ${PORT}`);
     });
     await loadModel();
@@ -265,3 +304,5 @@ async function loadModel() {
     throw error;
   }
 }
+
+startServer();

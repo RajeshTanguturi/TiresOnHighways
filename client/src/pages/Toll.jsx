@@ -45,7 +45,7 @@ const Toll = () => {
     setImage(e.target.files[0]);
   };
   const updateRegisNo = (e) => {
-    const input = e.target.value.replace(/[^a-zA-Z0-9]/g, ""); // Allow only letters and numbers
+    const input = e.target.value.replace(/[^a-zA-Z0-9]/g, "").toUpperCase(); // Allow only letters and numbers
     setregisNo(input);
     console.log(e);
     console.log(e.target.value);
@@ -70,7 +70,7 @@ const Toll = () => {
                 value={regisNo}
                 onChange={updateRegisNo}
               />
-              <label for="floatingInputregisno">Registration number</label>
+              <label htmlFor="floatingInputregisno">Registration number</label>
             </div>
             <div className="form-floating">
               <input
@@ -81,7 +81,7 @@ const Toll = () => {
                 value={phoneNo}
                 onChange={updatePhoneNo}
               />
-              <label for="floatingPasswordphoneno">Phone number</label>
+              <label htmlFor="floatingPasswordphoneno">Phone number</label>
             </div>
             <div>
               <div>

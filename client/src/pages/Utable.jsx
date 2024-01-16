@@ -159,22 +159,6 @@ const Table = ({ rno }) => {
               </tr>
             ))}
           </tbody>
-          <tfoot>
-            {table.getFooterGroups().map((footerGroup) => (
-              <tr key={footerGroup.id}>
-                {footerGroup.headers.map((header) => (
-                  <th id="userth" key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </tfoot>
         </table>
         <div className="buttons">
           <button id="firstpage" onClick={() => table.setPageIndex(0)}>
