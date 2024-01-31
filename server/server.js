@@ -185,6 +185,7 @@ app.get("/tirereports/:regisNo", async (req, res) => {
   }
 });
 
+// getting - sending image by imageName
 app.get("/getimage/:imageName", async (req, res) => {
   try {
     console.log("got request for image");
@@ -267,7 +268,6 @@ app.post("/imagefeedback", async (req,res)=>{
     res.status(500).json({ error: "Error uploading feedback" });
   }
 });
-
 
 async function startServer() {
   try {

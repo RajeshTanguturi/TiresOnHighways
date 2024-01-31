@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Utable from "../pages/Utable";
+import Utable from "../components/Utable";
 
 const Inputpage = () => {
   const [regisNo, setregisNo] = useState("");
@@ -13,8 +13,9 @@ const Inputpage = () => {
   };
   
   const handleRegisNoChange = (event) => {
-    setregisNo(event.target.value);
+    setregisNo(event.target.value.replace(/[^a-zA-Z0-9]/g, "").toUpperCase());
   };
+
 
   return (
     <div className="user">
@@ -23,6 +24,7 @@ const Inputpage = () => {
         <form id="inputForm" onSubmit={handleSubmit}>
           <div className="form-floating">
             <input
+            maxLength="12"
               type="text"
               placeholder="Enter registration Number"
               id="regno"

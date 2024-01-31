@@ -18,27 +18,26 @@ const Modal = ({ onClose, imageName }) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData;
-    formData.append("accurate",isAccurate);
-    formData.append("feedback",feedback);
-    formData.append("imageName",imageName);
+    const formData = new FormData();
+    formData.append("accurate", isAccurate);
+    formData.append("feedback", feedback);
+    formData.append("imageName", imageName);
     console.log(formData);
-    try{
+    try {
       const response = await axios.post(
         "http://localhost:5555/imagefeedback",
         formData,
         {
           headers: {
-            "Content-Type":"application/json"
-          }
+            "Content-Type": "application/json",
+          },
         }
       );
       setIsAccurate(false);
       setFeedback("");
       toast.success("Feedback sent successfully");
       console.log("Response from server:", response.data);
-    }
-    catch(error){
+    } catch (error) {
       toast.error("Error sending Feedback");
       console.error("Error sending Feedback:", error);
     }
@@ -97,7 +96,7 @@ const Modal = ({ onClose, imageName }) => {
         {image ? (
           <>
             <img src={image} alt="Server Provided Image" />
-            <form onSubmit={handleSubmit}> 
+            <form onSubmit={handleSubmit}>
               <div className="toggle-container">
                 <label>
                   Accurate

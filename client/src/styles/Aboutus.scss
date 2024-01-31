@@ -1,0 +1,37 @@
+@import "colors";
+
+.aboutus {
+  width: 100%;
+  height: 100vh;
+  background-color: $grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > div {
+    width: 80%;
+    height: 80vh;
+    background-color: $yellow;
+    border-radius:2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    > h1 {
+      border-bottom: 2px solid $black;
+      padding: 0.5rem;
+      width: 100%;
+      color: $black;
+    }
+
+    > p {
+      padding: 5rem;
+      letter-spacing: lpx;
+      word-spacing: 5px;
+      line-height: 170%;
+      font: italic l00 1.2rem $text2;
+    }
+  }
+}

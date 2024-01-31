@@ -1,4 +1,3 @@
-
 import {
   flexRender,
   getCoreRowModel,
@@ -9,10 +8,26 @@ import {
 } from "@tanstack/react-table";
 import axios from "axios";
 import React, { useState, useMemo, useEffect } from "react";
+import Modal from "../components/Modal";
+import Loading from "../components/Loading";
+
+
 
 const Table = () => {
   const [tireReport, setTireReport] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [imageName, setimageName] = useState("");
+  const [modalopen, setModalopen] = useState(false);
+
+  const handleShowImageClick = (imageName) => {
+    console.log(imageName);
+    setimageName(imageName);
+    setModalopen(true);
+  };
+  
+  const handleCloseModal = () => {
+    setModalopen(false);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,16 +61,23 @@ const Table = () => {
       accessorKey: "label",
     },
     {
-      Header: "Tire Damage",
-      accessorKey: "damage",
-    },
-    {
       Header: "Toll Location",
       accessorKey: "tollPlaza",
     },
     {
       Header: "Date",
       accessorKey: "createdAt",
+    },
+    {
+      Header: "Show Image",
+      accessorKey: "imageUrl",
+      cell: (cell) => (
+        <button
+          onClick={() => handleShowImageClick(cell.row.original.imageName)}
+        >
+          Show Image
+        </button>
+      ),
     },
   ];
   const [sorting, setSorting] = useState([]);
@@ -76,20 +98,14 @@ const Table = () => {
     onGlobalFilterChange: setFiltering,
   });
 
-  // You can use the 'rno' prop to render the necessary data in your table
   if (loading) {
-    // Render loading state or a placeholder
-    <div className="loading" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    Loading...
-  </div>
-
+    <Loading />
   }
   return (
     <>
     <div className="container" id="dealer">
     <h1>Tire Reports</h1>
     <br />
-      {/* <h1>user</h1> */}
       <input
         type="text"
         value={filtering}
@@ -156,7 +172,6 @@ const Table = () => {
         </tfoot>
       </table>
       <div className="buttons">
-        {/* <button id= "firstpage"onClick={() => table.setPageIndex(0)}>First page</button> */}
         <button
         id="prevpage"
           disabled={!table.getCanPreviousPage()}
@@ -171,11 +186,9 @@ const Table = () => {
         >
           Next page
         </button>
-        {/* <button id="lastpage" onClick={() => table.setPageIndex(table.getPageCount() - 1)}>
-          Last page
-        </button> */}
       </div>
     </div>
+    {modalopen && <Modal onClose={handleCloseModal} imageName={imageName} />}
     </>
   );
 };

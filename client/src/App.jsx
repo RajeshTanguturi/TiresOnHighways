@@ -1,19 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
-import Services from "./components/Services";
-import Feedback from "./components/Feedback";
+import Home from "./pages/Home";
 import Toll from "./pages/Toll";
 import User from "./pages/User";
 import Dealer from "./pages/Dealer";
-import Usertable from "./pages/Usertable";
-import Utable from "./pages/Utable"
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Services from "./components/Services";
+import Feedback from "./components/Feedback";
+import Utable from "./components/Utable";
 import Aboutus from "./components/Aboutus";
 
 import "bootstrap/dist/css/bootstrap.css";
-import "./styles/Loading.scss"
-import "./styles/Toll.scss"
+import "./styles/Aboutus.scss";
+import "./styles/Loading.scss";
+import "./styles/Toll.scss";
 import "./styles/App.scss";
 import "./styles/User.scss";
 import "./styles/Dealer.scss";
@@ -21,6 +21,7 @@ import "./styles/Home.scss";
 import "./styles/Footer.scss";
 import "./styles/Feedback.scss";
 import "./styles/Header.scss";
+import Loading from "./components/Loading";
 
 function App() {
   return (
@@ -33,10 +34,8 @@ function App() {
         <Route path="/toll" element={<Toll />} />
         <Route path="/dealer" element={<Dealer />} />
         <Route path="/user" element={<User />} />
-        <Route path="/user/:regisNo" element={<Usertable />} />
-        <Route path ="/testing" element={<Utable/>} />
-        <Route path ="/aboutus" element={ <Aboutus/> } />
-        <Route path ="/footer" element={ <Footer/> } />
+        <Route path="/aboutus" element={<Aboutus />} />
+        <Route path="/loading" element={<Loading />} />
 
       </Routes>
       <Footer />

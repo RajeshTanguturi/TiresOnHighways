@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <nav className="mynavbar">
       <div className="logo">
-        <Link to="/">Tread Insights</Link>
+        <Link to="/">Tire Insights</Link>
       </div>
       <ul className="links">
         <li>
@@ -31,9 +31,9 @@ const Header = () => {
         <li>
           <Link to={"/dealer"}>Dealer</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to={"/services"}>Services</Link>
-        </li>
+        </li> */}
         <li>
           <Link to={"/aboutUs"}>About Us</Link>
         </li>
@@ -65,9 +65,9 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <Link onClick={handleLinkclick} to={"/services"}>
+          {/* <Link onClick={handleLinkclick} to={"/services"}>
             Services
-          </Link>
+          </Link> */}
         </li>
         <li>
           <Link onClick={handleLinkclick} to={"/aboutUs"}>

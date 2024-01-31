@@ -7,10 +7,12 @@
   margin: 1rem 0;
 }
 #dealer {
-  margin: 4rem;
+  margin: 4rem 2rem;
+  min-height: 100vh;
+  // overflow-x:scroll;
+  width: 100%;
 }
 .table-container {
-    max-height: 400px; /* Adjust the height as needed */
-    overflow-y: auto;
-    margin-bottom: 20px; /* Add some bottom margin to separate buttons from the table */
-  }
+  // max-height: 400px;
+  margin-bottom: 20px;
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading from "./Loading";
 
 const Contact = () => {
   const [email, setemail] = useState("");
@@ -49,13 +50,15 @@ const Contact = () => {
     setfeedbacktext(e.target.value);
     console.log(e.target.value);
   };
-  
+  if (loading) {
+    return <Loading />
+  }
   return (
     <>
       <div className="Feedback">
         <main>
-          <h1>Feedback</h1>
-          <h6>
+          <h1 id="feedbacktitle">Feedback</h1>
+          <h6 id="feedbacktext">
             We value your feedback! Your insights help us improve our services
             and make your experience on Telangana's highways Safer
           </h6>

@@ -50,6 +50,7 @@
     content: "";
     width: 100%;
     height: 100%;
+    border: 0;
     position: absolute;
     background: no-repeat center/cover url(../assets/background2.jpg);
     filter: blur(2px);
@@ -112,41 +113,6 @@
 @keyframes imgUp {
   to {
     transform: translateY(-10px);
-  }
-}
-
-.home3 {
-  width: 100%;
-  height: 100vh;
-  background-color: $grey;
-  padding-top: 100px;
-  display: flex;
-
-  > div {
-    width: 70%;
-    height: 70vh;
-    background-color: $yellow;
-    border-radius: 0 200px 200px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-
-    > h1 {
-      border-bottom: 2px solid $black;
-      padding: 0.5rem;
-      width: 15rem;
-      color: $black;
-    }
-
-    > p {
-      padding: 5rem;
-      letter-spacing: lpx;
-      word-spacing: 5px;
-      line-height: 170%;
-      font: italic l00 1.2rem $text2;
-    }
   }
 }
 

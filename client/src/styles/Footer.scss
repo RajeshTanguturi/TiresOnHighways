@@ -2,7 +2,6 @@
 
 .myfooter {
   background-color: $black;
-  // height: 40vh;
   min-height: 30vh;
   width: 100%;
   color: $white;
@@ -51,6 +50,7 @@
 }
 @media screen and (max-width: 550px) {
   .myfooter {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

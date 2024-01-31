@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading from "../components/Loading";
 
 const Toll = () => {
   const [image, setImage] = useState(null);
@@ -56,6 +57,10 @@ const Toll = () => {
     console.log(e);
     console.log(e.target.value);
   };
+
+  if (loading) {
+    return <Loading />
+  }
   return (
     <div>
       <div className="toll" id="toll">
@@ -63,6 +68,7 @@ const Toll = () => {
           <form onSubmit={submitImage}>
             <div className="form-floating">
               <input
+            maxLength="12"
                 type="text"
                 class="form-control"
                 id="floatingInputregisno"
@@ -74,6 +80,8 @@ const Toll = () => {
             </div>
             <div className="form-floating">
               <input
+            maxLength="10"
+
                 type="tel"
                 class="form-control"
                 id="floatingPasswordphoneno"
